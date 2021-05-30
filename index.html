@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="prism.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>PostMan Clone</title>
+</head>
+<style>
+    #responsepre{
+        max-height: 500px;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">PostMan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="my-4">Welcome to PostMan</h1>
+    </div>
+    <div class="container">
+            <div class="mb-3 row">
+                <label for="url" class="col-sm-2 col-form-label">URL</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="url" placeholder="Enter url here">
+                </div>
+            </div>
+
+            <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-form-label col-sm-2 pt-0">Request Type</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="requestType" id="get" value="GET"
+                                checked>
+                            <label class="form-check-label" for="get">
+                                GET
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="requestType" id="post" value="POST">
+                            <label class="form-check-label" for="post">
+                                POST
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <div class="row">
+                    <label for="url" class="col-sm-2 col-form-label">Content type</label>
+
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="contentType" id="json" value="json"
+                                checked>
+                            <label class="form-check-label" for="json">
+                                JSON
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="contentType" id="params" value="params">
+                            <label class="form-check-label" for="param">
+                                Costum parameters
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+
+            <div id="parambox">
+
+                <div class="row">
+                    <label for="url" class="col-sm-2 col-form-label">Parameter 1</label>
+
+                    <div class="col-md-4">
+                        <input type="text" placeholder="Enter parameter1 key" class="form-control" id="paramkey1">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" placeholder="Enter parameter1 value" id="paramvalue1">
+                    </div> <br>
+                    <button  id="addparam"
+                class="btn btn-primary" style="width: 37px;
+                height: 36px;">+</button>
+                </div>
+
+            </div>
+            <div id="moreparam">
+                
+            </div>
+            
+
+            <div id = "jsonbox">
+                <div class="mb-3 row">
+                    <label for="url" class="col-sm-2 col-form-label">Enter Request json </label>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" id="jsontext"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                   
+                    <button type="button" id="submitbtn" class="btn btn-primary my-2">Submit</button>
+                </div>
+            </div>
+<br>
+            <div class="responsebox">
+                <div class="mb-3 row">
+                    <label for="url" class="col-sm-2 col-form-label">Response </label>
+                    <div class="col-sm-8">
+                       
+
+                        <pre id="responsepre" class="language-javascript">
+                            <code id="response" class="language-javascript">
+                                
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+</body>
+<script src="index.js"></script>
+<script src="prism.js"></script>
+</html>
